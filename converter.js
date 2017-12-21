@@ -37,11 +37,8 @@ function determineConverter () {
   let convertedTemp = null;
   if (toF.checked) {
       convertedTemp = toFahrenheit(temperature);
-  //     if (convertedTemp > 90) {
-  //         output.innerHTML.style.color = "red";
-  //     }
-  // } else {
-  //     convertedTemp = toCelsius(temperature);
+  } else {
+      convertedTemp = toCelsius(temperature);
   }
   printToDom(convertedTemp);
 };
@@ -55,23 +52,25 @@ function clearValue() {
 }
 
 function toFahrenheit (temperature) {
-  return (temperature * 1.8) + 32 
-    if (fahrenheitValue > 90) {
+  let fahrenheitValue = (temperature * 1.8) + 32 
+    if (fahrenheitValue> 90) {
       output.style.color = "red";
     } else if (fahrenheitValue < 32) {
       output.style.color = "blue";
     } else {
       output.style.color = "black";
   }
+  return fahrenheitValue;
 }
 
 function toCelsius (temperature) {
-  return (temperature - 32) * .5556
-  if (celciusValue > 32) {
+  let celciusValue= (temperature - 32) * .5556
+  if (celciusValue> 32) {
     output.style.color = "red";
   } else if (celciusValue < 0) {
     output.style.color = "blue";
   } else {
     output.style.color = "black";
   }
+  return celciusValue;
 }
